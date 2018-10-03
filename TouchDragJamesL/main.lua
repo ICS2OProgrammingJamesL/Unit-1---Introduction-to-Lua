@@ -1,7 +1,12 @@
 -----------------------------------------------------------------------------------------
---
--- main.lua
---
+-- Title: TouchAndDrag
+-- Name: James Lyall
+-- Course: ICS2O
+-- This program displays images that react to a person's finger.
 -----------------------------------------------------------------------------------------
 
--- Your code here
+-- Hide the status bar
+display.setStatusBar(display.HiddenStatusBar)
+
+-- local Variables.
+local backgroundImage
