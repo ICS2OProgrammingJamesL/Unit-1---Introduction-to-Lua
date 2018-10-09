@@ -9,10 +9,15 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 -- local Variables.
-local backgroundImage = display.newIMageRect("Images/background.png", 2048, 1536)
-local yellowGirl = display.newImageRect("Images/yellowGirl", 150, 150)
+local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536)
+local yellowGirl = display.newImageRect("Images/yellowGirl.png", 150, 150)
 local yellowGirlWidth = yellowGirl.width 
 local yellowGirlHeight = yellowGirl.yellowGirlHeight
+
+local blueGirl = display.newImageRect("Images/blueGirl.png", 150, 150)
+local blueGirlWidth = blueGirl.width
+local blueGirlHeight = blueGirl.blueGirlHeight
+
 -- my boolean variables to keep track of which object I touched first
 local alreadyTouchedYellowGirl = false
 local alreadyTouchedBlueGirl = false
@@ -31,7 +36,7 @@ blueGirl.y = 200
 local function BlueGirlListener(touch)
 
 	if (touch.phase == "began") then
-		if (alreadyTouchedYellowGirl == false) then
+		if (alreadyTouchedyellowGirl == false) then
 			alreadyTouchedBlueGirl = true
 		end
 	end
@@ -43,9 +48,34 @@ local function BlueGirlListener(touch)
 
 	if (touch.phase == "ended") then
 		alreadyTouchedBlueGirl = false
-		alreadyTouchedYellowGirl =  false 
+		alreadyTouchedyellowGirl =  false 
 	end
 end
 
 -- add the respective listeners to each object
 blueGirl:addEventListener("touch", BlueGirlListener)
+
+-- Function: yellowGirlListener
+-- Input: touch listener 
+-- Output: none
+--description: when yellow girl is touched, move her
+local function yellowGirlListener(touch)
+
+	if (touch.phase == "began") then
+		if (alreadyTouchedyellowGirl == false) then
+			alreadyTouchedBlueGirl = true
+		end
+	end
+
+	if ( (touch.phase == "moved") and (alreadyTouchedBlueGirl == true) ) then
+		blueGirl.x = touch.x
+		blueGirl.y = touch.y
+	end
+
+	if (touch.phase == "ended") then
+		alreadyTouchedBlueGirl = false
+		alreadyTouchedyellowGirl =  false 
+	end
+end
+
+
