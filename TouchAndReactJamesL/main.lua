@@ -24,9 +24,9 @@ redButton.y = display.contentHeight/2
 redButton.isVisible = false
 
 -- create green check, set its position and make it visible
-local greenCheck = display.newImageRect("Images/checkmark.png",200, 100)
-greenCheck.x = display.contentWidth/2
-greenCheck.y = display.contentHeight/3
+local redX = display.newImageRect("Images/red_x.png",200, 100)
+redX.x = display.contentWidth/2
+redX.y = display.contentHeight/3
 greenCheck.isVisible = true
 
 -- create text object, set its position and make it invisible
