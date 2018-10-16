@@ -8,6 +8,7 @@ display.setStatusBar(display.HiddenStatusBar)
 
 -- global variables
 scrollSpeed = 5
+scrollSpeed2 = 2
 -- background image with width snd height
 local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536)
 
@@ -33,10 +34,10 @@ octopus.y = 300
 local function MoveShip(event)
 	-- add the scroll speed to the x-value of the ship
 	beetleship.y = beetleship.y + scrollSpeed
-	octopus.x = octopus.x + scrollSpeed
+	octopus.x = octopus.x + scrollSpeed2
 	--change the transparency of the ship every time it moves so that it fades out
 	beetleship.alpha = beetleship.alpha + 0.01
-	octopus.alpha = octopus.alpha - 0.001
+	octopus.alpha = octopus.alpha - 0.0001
 end
 
 -- MoveShip will be called over and overagain

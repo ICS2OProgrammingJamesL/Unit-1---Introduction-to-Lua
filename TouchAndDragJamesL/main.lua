@@ -36,7 +36,7 @@ blueGirl.y = 200
 local function BlueGirlListener(touch)
 
 	if (touch.phase == "began") then
-		if (alreadyTouchedyellowGirl == false) then
+		if (alreadyTouchedYellowGirl == false) then
 			alreadyTouchedBlueGirl = true
 		end
 	end
@@ -48,34 +48,45 @@ local function BlueGirlListener(touch)
 
 	if (touch.phase == "ended") then
 		alreadyTouchedBlueGirl = false
-		alreadyTouchedyellowGirl =  false 
+		alreadyTouchedyellowGirl = false 
 	end
 end
 
 -- add the respective listeners to each object
 blueGirl:addEventListener("touch", BlueGirlListener)
 
--- Function: yellowGirlListener
+-- Function: BlueGirlListener
 -- Input: touch listener 
 -- Output: none
---description: when yellow girl is touched, move her
-local function yellowGirlListener(touch)
+--description: when blue girl is touched, move her
+local function YellowGirlListener(touch)
 
 	if (touch.phase == "began") then
-		if (alreadyTouchedyellowGirl == false) then
-			alreadyTouchedBlueGirl = true
+		if (alreadyTouchedBlueGirl == false) then
+			alreadyTouchedYellowGirl = true
 		end
 	end
 
-	if ( (touch.phase == "moved") and (alreadyTouchedBlueGirl == true) ) then
+	if ( (touch.phase == "moved") and (alreadyTouchedYellowGirl == true) ) then
 		blueGirl.x = touch.x
 		blueGirl.y = touch.y
 	end
 
 	if (touch.phase == "ended") then
-		alreadyTouchedBlueGirl = false
-		alreadyTouchedyellowGirl =  false 
+		alreadyTouchedYellowGirl = false
+		alreadyTouchedBlueGirl = false 
 	end
 end
+
+-- add the respective listeners to each object
+blueGirl:addEventListener("touch", YellowGirlListener)
+
+
+
+
+
+
+
+
 
 
