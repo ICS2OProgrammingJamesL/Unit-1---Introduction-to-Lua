@@ -23,6 +23,11 @@ local userAnswer
 local correctAnswer
 local incorrectAnswer
 local randomOperator
+local Points = 0
+local pointsTextObject
+
+
+
 
 -- local functions
 
@@ -86,13 +91,19 @@ local function NumericFieldListener( event )
 			incorrectObject.isVisible = false
 			event.target.text = ""
 			timer.performWithDelay(2000, HideCorrect)
+			Points = Points + 1
 			else
 			incorrectObject.isVisible = true
 			event.target.text = ""
-			correctObject.isVisible = false		
+			correctObject.isVisible = false	
+			timer.performWithDelay(2000, HideIncorrect)	
 		end
 	end
 end
+
+-- display points text and colour it
+pointsTextObject = display.newText( " Points = " .. Points, 100, 100, nil, 50)
+pointsTextObject:setTextColor(10/255, 100/255, 10/255)
 
 -- OBJECT CREATION
 
