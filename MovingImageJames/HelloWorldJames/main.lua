@@ -6,7 +6,11 @@
 -----------------------------------------------------------------------------------------
 
 -- print "Hello, World" to the command terminal
-print ("***Hello James!")
+print ("Hello James!")
+
+-- local background music
+local backgroundMusic = audio.loadSound( "Sounds/bkgMusic.mp3" )
+local BackgroundMusicChannel
 
 -- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
@@ -16,6 +20,9 @@ display.setDefault("background", 100/255, 50/255, 199/255)
 
 -- create a local variable
 local textObject
+
+-- display background music
+BackgroundMusicChannel = audio.play(backgroundMusic)
 
 -- displays text on the screen at position x = 500 and y = 500 with
 -- a default font style and font size of 50
