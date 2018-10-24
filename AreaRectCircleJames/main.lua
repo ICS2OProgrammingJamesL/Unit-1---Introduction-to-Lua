@@ -21,11 +21,18 @@ local PI = 3.14
 local AreaText
 local TextSize = 50
 
+-- local variables for background music
+local BackgroundMusic = audio.loadSound( "Sounds/bkgMusic.mp3)" )
+local BackgroundMusicChannel
+
 --set the backgorund colour of my screen. Remember that colors are between 0 and 1.
 display.setDefault("background", 29/25, 195/255, 100/255)
 
 --to remove status bar
 display.setStatusBar(display.HiddenStatusBar)
+
+-- display the background music
+BackgroundMusicChannel = audio.play(BackgroundMusic)
 
 --draw the rectangle that is half the width and height of the screen size.
 myRectangle = display.newRect(10, 10, widthOfRectangle, heightOfRectangle)
