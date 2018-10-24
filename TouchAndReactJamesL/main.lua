@@ -23,11 +23,17 @@ redButton.x = display.contentWidth/2
 redButton.y = display.contentHeight/2
 redButton.isVisible = false
 
--- create green check, set its position and make it visible
+-- create red x, set its position and make it visible
 local redX = display.newImageRect("Images/red_x.png",200, 100)
 redX.x = display.contentWidth/2
-redX.y = display.contentHeight/3
-greenCheck.isVisible = true
+redX.y = display.contentHeight/4
+redX.isVisible = true
+
+-- created green check, set its position and mkae it invisible until touched
+local greenCheck = display.newImageRect("Images/checkmark.png",200, 100)
+greenCheck.x = display.contentWidth/2
+greenCheck.y = display.contentHeight/4
+greenCheck.isVisible = false
 
 -- create text object, set its position and make it invisible
 local textObject = display.newText ("Clicked!", 0, 0, nil, 50)
@@ -46,7 +52,8 @@ local function BlueButtonListener(touch)
 		blueButton.isVisible = false
 		redButton.isVisible = true
 		textObject.isVisible = true
-		greenCheck.isVisible = false
+		greenCheck.isVisible = true
+		redX.isVisible = false
 	end
 
 	if (touch.phase == "ended") then
@@ -62,14 +69,16 @@ local function RedButtonListener(touch)
 		blueButton.isVisible = false
 		redButton.isVisible = true
 		textObject.isVisible = true
-		greenCheck.isVisible = true
+		greenCheck.isVisible = false
+		redX.isVisible = true
 	end
 
 	if (touch.phase == "ended") then
-	 blueButon.isVisible = true
+	 blueButton.isVisible = true
 	 redButton.isVisible = false
 	 textObject.isVisible = false
-	 greenCheck.isVisible = true
+	 greenCheck.isVisible = false
+	 redX.isVisible = true
 	end
 end
 
@@ -78,3 +87,4 @@ end
 
 -- add the respective listeners to each object
 blueButton:addEventListener("touch", BlueButtonListener)
+redButton:addEventListener("touch", RedButtonListener)
