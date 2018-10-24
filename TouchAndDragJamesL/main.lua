@@ -23,8 +23,8 @@ local alreadyTouchedYellowGirl = false
 local alreadyTouchedBlueGirl = false
 
 -- set local variables for sound
-local FryingPanChannel
-local FryingPan = audio.loadSound( "Sounds/FryingPan.mp3" )
+local PopSound = audio.loadSound( "Sounds/PopSound.wav" )
+local PopSoundChannel
 
 -- set the initial x and y position of myImage
 yellowGirl.x = 400
@@ -42,7 +42,7 @@ local function BlueGirlListener(touch)
 	if (touch.phase == "began") then
 		if (alreadyTouchedYellowGirl == false) then
 			alreadyTouchedBlueGirl = true
-			FryingPanChannel = audio.play(FryingPan)
+			PopSoundChannel = audio.play(PopSound)
 		end
 	end
 
@@ -69,7 +69,7 @@ local function YellowGirlListener(touch)
 	if (touch.phase == "began") then
 		if alreadyTouchedBlueGirl == false then
 			alreadyTouchedYellowGirl = true
-			FryingPanChannel = audio.play(FryingPan)
+			PopSoundChannel = audio.play(PopSound)
 		end
 	end
 
@@ -81,6 +81,7 @@ local function YellowGirlListener(touch)
 	if (touch.phase == "ended") then
 		alreadyTouchedYellowGirl = false
 		alreadyTouchedBlueGirl = false 
+
 	end
 end
 
