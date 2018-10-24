@@ -111,7 +111,7 @@ end
 -- function that calls the timer
 local function StartTimer()
 	-- create a countdown timer that loops infinitely
-	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
+	countDownTimer = timer.performWithDelay( 500, UpdateTime, 0)
 end
 
 
