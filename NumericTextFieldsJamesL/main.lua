@@ -96,8 +96,9 @@ local function UpdateTime()
 	clockText.text = secondsLeft .. ""
 	
 	if (userAnswer == correctAnswer) then
-		secondsLeft = totalSeconds
+		secondsLeft = totalSeconds		
 	end
+
 
 	if (secondsLeft == 0 ) then
 		-- reset the number of seconds left
@@ -190,6 +191,7 @@ local function NumericFieldListener( event )
 			lives = lives - 1
 			UpdateLives()
 			incorrectSoundChannel = audio.play(incorrectSound)
+			secondsLeft = totalSeconds
 		end
 	end
 end
