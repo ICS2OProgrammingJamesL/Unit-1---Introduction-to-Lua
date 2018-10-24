@@ -7,14 +7,23 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 -- global variables
-scrollSpeed = 5
+scrollSpeed = 2
 scrollSpeed2 = 2
 -- background image with width snd height
 local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536)
 
+
+-- Sound variables
+local BetterDays = audio.loadSound( "Sounds/BetterDays.mp3" )
+local BetterDaysChannel
+
+
 -- character image with width and height
 local beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
 local octopus = display.newImageRect("Images/octopus.png", 150, 150)
+
+-- display sound to background
+BetterDaysChannel = audio.play(BetterDays)
 
 -- set the image to be transparent
 beetleship.alpha = 0
