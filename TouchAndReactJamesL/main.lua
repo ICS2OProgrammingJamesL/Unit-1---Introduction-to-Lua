@@ -11,6 +11,10 @@ display.setStatusBar(display.HiddenStatusBar)
 -- set background colour
 display.setDefault ("background", 20/255, 10/255, 50/255)
 
+-- Sound Variables
+ local FryingPan = audio.loadSound( "Sounds/Fryingpan.mp3" )
+local FryingPanChannel
+
 -- create blue button, set its position and make it visible
 local blueButton = display.newImageRect("Images/Fast Button Inactive@2x.png",198, 96)
 blueButton.x = display.contentWidth/2
@@ -54,6 +58,7 @@ local function BlueButtonListener(touch)
 		textObject.isVisible = true
 		greenCheck.isVisible = true
 		redX.isVisible = false
+		FryingPanChannel = audio.play(FryingPan)
 	end
 
 	if (touch.phase == "ended") then
@@ -61,6 +66,7 @@ local function BlueButtonListener(touch)
 	 redButton.isVisible = false
 	 textObject.isVisible = false
 	 greenCheck.isVisible = false
+	 audio.stop(FryingPanChannel)
 	end
 end
 
@@ -71,6 +77,7 @@ local function RedButtonListener(touch)
 		textObject.isVisible = true
 		greenCheck.isVisible = false
 		redX.isVisible = true
+		FryingPanChannel = audio.play(FryingPan)
 	end
 
 	if (touch.phase == "ended") then
@@ -79,6 +86,7 @@ local function RedButtonListener(touch)
 	 textObject.isVisible = false
 	 greenCheck.isVisible = false
 	 redX.isVisible = true
+	 audio.stop(FryingPanChannel)
 	end
 end
 
