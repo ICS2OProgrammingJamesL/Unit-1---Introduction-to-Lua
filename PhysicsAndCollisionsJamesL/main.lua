@@ -48,9 +48,9 @@ beam1.x = display.contentWidth*9/10
 beam1.y = display.contentHeight*9/10
 
 beam.width = display.contentWidth*0.5/10
-beam.height = display.contentHeight*9/10
+beam.height = display.contentHeight*7/10
 beam1.width = display.contentWidth*0.5/10
-beam1.height = display.contentHeight*9/10
+beam1.height = display.contentHeight*7/10
 
 -- rotate the beam to be 320 degrees so its on a angle facing right
 
@@ -109,7 +109,7 @@ local function secondball()
 
 	-- add physics
 
-	physics.addBody(ball2, {density=1.0, friction=1, bounce=1, radius=75})
+	physics.addBody(ball2, {density=1.0, friction=1, bounce=0.4, radius=75})
 	ball2:scale( 3, 3)
 end
 
