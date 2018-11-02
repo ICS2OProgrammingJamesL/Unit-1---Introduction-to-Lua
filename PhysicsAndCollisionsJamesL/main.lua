@@ -13,6 +13,10 @@ local physics = require("physics")
 -- start physics
 physics.start()
 
+-- local variables for background music
+local BackgroundMusic = audio.loadSound( "Sounds/bkgMusic.mp3)" )
+local BackgroundMusicChannel
+
 -- OBJECTS
 
 -- ground
@@ -97,6 +101,9 @@ local function firstball()
 
 	physics.addBody(ball1, {density=1.0, friction=0.5, bounce=1, radius=50})
 	ball1:scale( 2, 2)
+
+	-- display the background music
+	BackgroundMusicChannel = audio.play(BackgroundMusic)
 end
 
 -- create the second ball
